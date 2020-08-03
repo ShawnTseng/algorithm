@@ -14,7 +14,7 @@ export default class LinkedList {
    * @returns {LinkedList}
    */
   pretend(value) {
-    const newNode = new LinkedListNode(value, this.head); // 指向head
+    const newNode = new LinkedListNode(value, this.head); // 指向第二個
     this.head = newNode; // 更新head
     if (!this.tail) {
       // 如果是第一個節點,也會是tail
@@ -26,11 +26,10 @@ export default class LinkedList {
   append(value) {
     const newNode = new LinkedListNode(value);
     if (!this.head) {
-      // 如果是第一個節點,也會是head
       this.head = newNode;
     }
     if (this.tail) {
-      // 如果有tail, 才被tail指向
+      // 被倒數第二個指向
       this.tail.next = newNode;
     }
     this.tail = newNode; // 更新tail
