@@ -27,12 +27,19 @@ export default class LinkedList {
     const newNode = new LinkedListNode(value);
     if (!this.head) {
       this.head = newNode;
-    }
-    if (this.tail) {
-      // 被倒數第二個指向
+      this.tail = newNode;
+    } else {
       this.tail.next = newNode;
+      this.tail = newNode;
     }
-    this.tail = newNode; // 更新tail
     return this;
+  }
+
+  search(value) {
+    let currentNode = this.head;
+    while (!currentNode && currentNode.value !== value) {
+      currentNode = currentNode.next;
+    }
+    return currentNode !== null ? currentNode : null;
   }
 }
