@@ -37,9 +37,9 @@ export default class LinkedList {
 
   search(value) {
     let currentNode = this.head;
-    while (!currentNode && currentNode.value !== value) {
+    while (!!currentNode && currentNode.value !== value) {
       currentNode = currentNode.next;
     }
-    return currentNode !== null ? currentNode : null;
+    return currentNode !== null ? currentNode.value : null;
   }
 }
